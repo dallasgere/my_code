@@ -5,17 +5,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class weather_data:
-
-	def hello_world():
-		print("HELLO!!")
 	
-	def get_weather_data():
+	def get_weather_data(string):
 
 		url = "https://weatherapi-com.p.rapidapi.com/forecast.json"
 
 		# adding the location
-		print("What location would you like to look at: ")
-		location = input()
+		#print("What location would you like to look at: ")
+		#location = input()
 
 		querystring = {"q":location,"days":"3"}
 

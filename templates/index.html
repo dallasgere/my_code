@@ -2,7 +2,27 @@
     <head>
     </head>
     <body>
-        <h1>hello world</h1>
-        <h2>{{send_moon}}</h2>
+        <h1>This is my button</h1>
+        <button type="button" onclick="send_user_info()">send user info</button>
     </body>
+
+    <script>
+
+        function send_user_info(){
+
+            let user_info = {
+                name: "John John",
+                type: "Big Dog",
+            }
+
+            const request = new XMLHttpRequest()
+            request.open('POST', `/process_user_info/${JSON.stringify(user_info)}`)
+            requests.onload = () => {
+                const flaskMessage = request.responseText
+                console.log(flaskMessage)
+            }
+            request.send()
+        }
+
+    </script>
 </html>

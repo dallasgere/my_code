@@ -4,7 +4,6 @@ import weather
 import flask
 
 def main():
-    weather.weather_data.get_weather_data()
     server.server_class.make_server()
 
 

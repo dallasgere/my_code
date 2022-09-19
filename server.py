@@ -2,7 +2,7 @@
 import flask
 import weather
 import os
-#import weather.py
+import json
 
 class server_class:
 
@@ -12,11 +12,19 @@ class server_class:
         app = flask.Flask(__name__)
         @app.route('/')
         def index():
-            moon = weather.weather_data.get_weather_data()
-            return flask.render_template(
-                "index.html",
-                send_moon = moon
-            )
+            return flask.render_template("index.html")
+        
+        @app.route('/process_user_info/<string:user_info>', methods=['POST'])
+        def process_user_info(user_info):
+            user_info = json.loads(user_info)
+            print()
+            print("user info recieved")
+            print("-------------------")
+            print(f"user name: {user_info['name']}")
+            print(f"user type: {user_info['type']}")
+            print()
+            
+            return "information received!"
 
         app.run(
             debug = True
