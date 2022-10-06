@@ -4,9 +4,15 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-class weather_data:
+class WeatherData:
+	'''
+	this is the class that will contain all the functions to retruive weather data
+	'''
 	
-	def get_weather_data(string):
+	def get_weather_data(self, location):
+		'''
+		this functio will retreive weather data using the api
+		'''
 
 		url = "https://weatherapi-com.p.rapidapi.com/forecast.json"
 

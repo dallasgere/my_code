@@ -1,30 +1,40 @@
 # this file will launch my web server
-import flask
-import weather
 import os
+import weather
+import flask
 import json
 
-class server_class:
+class ServerClass:
+    '''
+    This is the class to make my server
+    '''
 
     # this is my function to make a server
-    def make_server():
+    def make_server(self):
+        '''
+        this is the function that will make my server, called in main
+        '''
 
         app = flask.Flask(__name__)
         @app.route('/')
         def index():
-            return flask.render_template("index.html")
+            moon = weather.weather_data.get_weather_data("Austin")
+            return flask.render_template(
+                "index.html",
+                time = moon
+            )
         
-        @app.route('/process_user_info/<string:user_info>', methods=['POST'])
-        def process_user_info(user_info):
-            user_info = json.loads(user_info)
-            print()
-            print("user info recieved")
-            print("-------------------")
-            print(f"user name: {user_info['name']}")
-            print(f"user type: {user_info['type']}")
-            print()
+        # @app.route('/process_user_info/<string:user_info>', methods=['POST'])
+        # def process_user_info(user_info):
+        #     user_info = json.loads(user_info)
+        #     print()
+        #     print("user info recieved")
+        #     print("-------------------")
+        #     print(f"user name: {user_info['name']}")
+        #     print(f"user type: {user_info['type']}")
+        #     print()
             
-            return "information received!"
+        #     return "information received!"
 
         app.run(
             debug = True
