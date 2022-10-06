@@ -10,7 +10,7 @@ class ServerClass:
     '''
 
     # this is my function to make a server
-    def make_server(self):
+    def make_server():
         '''
         this is the function that will make my server, called in main
         '''
@@ -18,7 +18,7 @@ class ServerClass:
         app = flask.Flask(__name__)
         @app.route('/')
         def index():
-            moon = weather.weather_data.get_weather_data("Austin")
+            moon = weather.WeatherData.get_weather_data("Austin")
             return flask.render_template(
                 "index.html",
                 time = moon

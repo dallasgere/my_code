@@ -9,7 +9,7 @@ class WeatherData:
 	this is the class that will contain all the functions to retruive weather data
 	'''
 	
-	def get_weather_data(self, location):
+	def get_weather_data(location):
 		'''
 		this functio will retreive weather data using the api
 		'''
